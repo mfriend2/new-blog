@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/partials :: head('Create A Post')">
+</head>
+<body>
+<div>
+    <h1>Create a post!</h1>
+</div>
+<form th:action="@{/posts/create}" th:method="post" th:object="${post}">
+    <label for="title">Title</label>
+    <div>
+        <input type="text" id="title" name="title" placeholder="Enter Title Here" th:field="*{title}">
+    </div>
+    <label for="body">Body</label>
+    <div>
+        <input type="text" id="body" name="body" placeholder="Enter Body here" th:field="*{body}">
+    </div>
+    <div>
+        <button th:value="${post.id}" type="submit">Create Post</button>
+    </div>
+</form>
+</body>
+</html>
