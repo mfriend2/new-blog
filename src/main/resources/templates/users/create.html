@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/partials :: head('Create A User')">
+</head>
+<body>
+<form th:action="@{/users/create}" th:method="post" th:object="${user}">
+    <label for="email">Email</label>
+    <div>
+        <input type="text" id="email" name="email" placeholder="Enter Email" th:field="*{email}">
+    </div>
+    <label for="username">Username</label>
+    <div>
+        <input type="text" id="username" name="username" placeholder="Enter Username" th:field="*{username}">
+    </div>
+    <label for="password">Password</label>
+    <div>
+        <input type="password" id="password" name="password" placeholder="Enter Password" th:field="*{password}">
+    </div>
+    <div>
+        <button th:value="${user.id}" type="submit">Create User</button>
+    </div>
+</form>
+</body>
+</html>
