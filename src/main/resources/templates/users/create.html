@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="fragments/partials :: head('Create A User')">
 </head>
 <body>
+<nav th:replace="fragments/partials :: navbar"></nav>
 <form th:action="@{/users/create}" th:method="post" th:object="${user}">
     <label for="email">Email</label>
     <div>
