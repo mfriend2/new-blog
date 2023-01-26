@@ -7,6 +7,12 @@
     <div>
         <h3 th:text="${post.title}"></h3>
         <p th:text="${post.body}"></p>
+        <th:block sec:authorize="isAuthenticated()">
+            <div th:if="${post.user.id == #authentication.principal.id}">
+                <a th:href="@{/posts/{id}/delete (id = ${post.id})}" th:value="${post.id}" type="button" th:name="delete">Delete</a>
+                <a th:href="@{/posts/{id}/edit (id = ${post.id})}" th:value="${post.id}" type="button" th:name="edit">Edit</a>
+            </div>
+        </th:block>
     </div>
 </body>
 </html>
