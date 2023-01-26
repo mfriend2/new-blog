@@ -108,8 +108,8 @@ public class PostController {
         }
         else {
             long id = (long) session.getAttribute("id");
-            Post updatedPost = postsDao.getById(id);
-            updatedPost.setTitle();
+            postsDao.updatePost(id, post.getTitle(), post.getBody());
+            return "redirect:/posts";
         }
     }
 }
