@@ -42,7 +42,7 @@ public class Post {
         return title;
     }
 
-    public void setTitle() {
+    public void setTitle(String title) {
         this.title = title;
     }
 

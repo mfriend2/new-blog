@@ -4,7 +4,8 @@
 </head>
 <body>
 <nav th:replace="fragments/partials :: navbar"></nav>
-<div th:each="post: ${posts}">
+<div >
+    <a th:each="post: ${posts}" th:href="@{/posts/{id} (id = ${post.id})} " type="button" role="button">
     <h3 th:text="${post.title}"></h3>
     <p th:text="${post.body}"></p>
     <th:block sec:authorize="isAuthenticated()">
@@ -13,6 +14,7 @@
             <a th:href="@{/posts/{id}/edit (id = ${post.id})}" th:value="${post.id}" type="button" th:name="edit">Edit</a>
         </div>
     </th:block>
+    </a>
 </div>
 </body>
 </html>
